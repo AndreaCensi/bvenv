@@ -1,3 +1,14 @@
+Step-by-step installation for Ubuntu 8.04
+------------------------------------------
+
+Commands::
+
+	sudo apt-get install subversion git-core cmake libcairo2-dev ncurses-dev g++
+	sudo apt-get install python-dev python-setuptools python-numpy python-nose python-matplotlib  
+
+Note: python-virtualenv is not available in this version of ubuntu:
+
+	sudo easy_install virtualenv
 
 Step-by-step installation for Ubuntu 10.04
 ------------------------------------------
@@ -15,7 +26,7 @@ Upgrade the system::
 	sudo apt-get upgrade
 	
 
-Install required software:
+Install required software::
 
 	sudo apt-get install subversion git-core cmake libcairo2-dev ncurses-dev g++
 	sudo apt-get install python-dev python-setuptools python-numpy python-nose python-matplotlib  python-virtualenv
