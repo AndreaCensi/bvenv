@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-echo I am assuming you installed all the required software. (press enter)
+echo "I am assuming you installed all the required software. (press enter)"
 read
 config=environment.sh
 
@@ -10,11 +10,14 @@ echo export BVENV_ROOT=`pwd` >>${config}
 echo export BVENV_PREFIX=\${BVENV_ROOT}/deploy >>${config}
 echo export BVENV_SRC=\${BVENV_ROOT}/src >>${config}
 echo export BVENV_DATA=\${BVENV_ROOT}/data >>${config}
+echo export BVENV_OUT=\${BVENV_ROOT}/results >>${config}
 echo export PATH=\${BVENV_PREFIX}/bin:\$PATH >>${config}
 echo export PKG_CONFIG_PATH=\${BVENV_PREFIX}/lib/pkgconfig >>${config}
 
 source ${config}
 cat ${config}
+
+read
 
 echo Create a new virtual env for python
 virtualenv ${BVENV_PREFIX}
@@ -31,7 +34,6 @@ ${BVENV_PREFIX}/bin/easy_install nose
 
 
 echo Checkout the sources
-cd ${BVENV_SRC} 
 cd ${BVENV_SRC} && svn co https://www.cds.caltech.edu/subversion/andrea/snp/camera-boostrap
 cd ${BVENV_SRC} && svn co https://www.cds.caltech.edu/subversion/andrea/snp/snp-log
 cd ${BVENV_SRC} && svn co https://www.cds.caltech.edu/subversion/andrea/snp/snp_geometry
@@ -48,6 +50,15 @@ cd ${BVENV_SRC}          && svn up albert-sp10
 cd ${BVENV_SRC}/compmake && git pull
 cd ${BVENV_SRC}/json-c   && git pull
 cd ${BVENV_SRC}          && svn up bv
+
+
+cd ${BVENV_SRC}          && svn commit snp-log
+cd ${BVENV_SRC}          && svn commit snp_geometry
+cd ${BVENV_SRC}          && svn commit camera-bootstrap
+cd ${BVENV_SRC}          && svn commit albert-sp10
+cd ${BVENV_SRC}/compmake && git commit -a
+cd ${BVENV_SRC}/json-c   && git commit -a
+cd ${BVENV_SRC}          && svn commit bv
 
 
 cd ${BVENV_SRC}/snp_geometry             && python setup.py develop
