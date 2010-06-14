@@ -71,10 +71,14 @@ cd ${BVENV_SRC}/json-c        && cmake -DCMAKE_INSTALL_PREFIX=${BVENV_PREFIX} . 
 cd ${BVENV_SRC}/bv/raytracer  && cmake -DCMAKE_INSTALL_PREFIX=${BVENV_PREFIX} . && make install
 cd ${BVENV_SRC}/bv/jsonstream && python setup.py develop
 cd ${BVENV_SRC}/bv            && python setup.py develop
+
 cd ${BVENV_SRC}/bv            && nosetests
+cd ${BVENV_SRC}/compmake            && nosetests
 
 
 mkdir -p ${BVENV_DATA}
 
-cd ${BVENV_DATA} && rsync --progress -a -v andrea@tokyo:BIGDATA/er1-logs .
+tokyo=131.215.42.218
+#cd ${BVENV_DATA} && rsync --progress -a -v andrea@tokyo:BIGDATA/er1-logs .
+cd ${BVENV_DATA} && rsync --progress -a -v andrea@131.215.42.218:BIGDATA/er1-logs .
 

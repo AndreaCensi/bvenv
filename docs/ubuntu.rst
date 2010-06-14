@@ -1,3 +1,8 @@
+Step-by-step installation for RHEL 5.4
+------------------------------------------
+
+	easy_install virtualenv
+
 Step-by-step installation for Ubuntu 8.04
 ------------------------------------------
 
@@ -48,3 +53,12 @@ Step-by-step installation for Fedora 13
 	yum install subversion git cmake
 	yum install gsl gsl-devel gsl-static
 	yum install cairo-devel pycairo pycairo-devel
+	
+	
+	
+
+Misc
+====
+
+What about OpenCV?
+
