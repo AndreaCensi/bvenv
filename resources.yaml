@@ -1,0 +1,39 @@
+---
+destination: ${BVENV_SRC}/bv
+type: subversion
+url: https://www.cds.caltech.edu/subversion/andrea/pri/bv/src
+install: setuptools
+---
+destination: ${BVENV_SRC}/compmake
+type: git
+url: git@github.com:AndreaCensi/compmake.git
+install: setuptools
+---
+destination: ${BVENV_SRC}/bv/raytracer
+type: included
+install: cmake
+---
+destination: ${BVENV_SRC}/snp_geometry
+type: subversion
+url: https://www.cds.caltech.edu/subversion/andrea/snp/snp_geometry
+install: setuptools
+---
+destination: ${BVENV_SRC}/snp-log
+type: subversion
+url: https://www.cds.caltech.edu/subversion/andrea/snp/snp-log
+install: setuptools
+---
+destination: ${BVENV_SRC}/albert-sp10
+type: subversion
+url: https://www.cds.caltech.edu/subversion/andrea/snp/albert-sp10
+install: setuptools
+---
+destination: ${BVENV_SRC}/json-c
+type: git
+url: git@github.com:AndreaCensi/json-c.git
+install: cmake
+---
+destination: ${BVENV_SRC}/reprep
+type: git
+url: git@github.com:AndreaCensi/json-c.git
+install: cmake
