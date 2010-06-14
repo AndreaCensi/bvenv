@@ -71,7 +71,8 @@ class Git(Resource):
         system_cmd_fail('git clone %s %s' % (self.url, self.destination))
 
     def update(self):
-        system_cmd_fail('git pull %s origin/%s' % (self.destination, self.branch))
+	# XXX: branch :
+        system_cmd_fail('cd %s && git pull ' % (self.destination))
         
     def something_to_commit(self):
         return 0 != system_cmd('cd %s && git diff --quiet --exit-code origin/%s' % (self.destination, self.branch))
