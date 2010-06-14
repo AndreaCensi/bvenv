@@ -153,7 +153,8 @@ if __name__=='__main__':
            
     elif command == 'commit':
         for r in resources:
-            r.commit()
+            if r.something_to_commit():
+                r.commit()
     else:
         raise Exception('Uknown command "%s".' % command)
         
