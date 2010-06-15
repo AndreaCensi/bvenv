@@ -17,13 +17,12 @@ echo export PKG_CONFIG_PATH=\${BVENV_PREFIX}/lib/pkgconfig >>${config}
 source ${config}
 cat ${config}
 
+echo "Now creating virtual environment (press enter)"
 read
-
 echo Create a new virtual env for python
 virtualenv ${BVENV_PREFIX}
 echo source ${BVENV_PREFIX}/bin/activate >> ${config}
 source ${config}
-
 
 
 mkdir -p ${BVENV_SRC}
@@ -31,6 +30,10 @@ mkdir -p ${BVENV_SRC}
 
 echo Installing nose in this virtual env
 ${BVENV_PREFIX}/bin/easy_install nose
+
+
+echo "The next steps can be done with patience. (./patience resources.yaml checkout)"
+read
 
 
 echo Checkout the sources
