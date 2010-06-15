@@ -10,6 +10,7 @@ def system_cmd(cmd):
         
     
 def system_cmd_fail(cmd):
+    print cmd
     res = os.system(cmd)
     if res != 0:
         raise Exception('Command "%s" failed. (ret vlaue: %s)' %(cmd, res))
@@ -21,6 +22,7 @@ def system_output(cmd):
     
 class Resource:
     def __init__(self, config):
+        self.config = config
         self.destination = config['destination']
 
     def is_downloaded(self):
@@ -44,6 +46,24 @@ class Resource:
     def commit(self):
         pass
 
+    def install(self):
+
+        install_type = self.config.get('install', None)
+        if install_type is None:
+            print "Skipping %s" % self
+            return
+
+        if install_type == 'setuptools':
+            system_cmd_fail('cd %s && python setup.py develop' % self.destination)
+        elif install_type == 'cmake':
+            system_cmd_fail('cd %s && cmake -DCMAKE_INSTALL_PREFIX=${BVENV_PREFIX} .' % self.destination)
+            system_cmd_fail('cd %s && make' % self.destination)
+            
+            system_cmd_fail('cd %s && make install' % self.destination)
+            
+            
+        else:
+            raise Exception('Uknown install type "%s".' % install_type)
         
 class Subversion(Resource):
     def __init__(self, config):
@@ -72,7 +92,7 @@ class Git(Resource):
         system_cmd_fail('git clone %s %s' % (self.url, self.destination))
 
     def update(self):
-	# XXX: branch :
+    # XXX: branch :
         # system_cmd_fail('cd %s && git pull origin ' % (self.destination))
         system_cmd_fail('cd %s && git pull origin master' % (self.destination))
         
@@ -153,7 +173,7 @@ if __name__=='__main__':
             else:
                 pass
 #                print "%s: all ok." % r
-           
+        
     elif command == 'commit':
         for r in resources:
             if r.something_to_commit():

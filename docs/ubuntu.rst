@@ -34,9 +34,18 @@ Upgrade the system::
 Install required software::
 
 	sudo apt-get install subversion git-core cmake libcairo2-dev ncurses-dev g++
-	sudo apt-get install python-dev python-setuptools python-numpy python-nose python-matplotlib  python-virtualenv
+	sudo apt-get install python-dev python-setuptools python-numpy python-nose python-matplotlib  python-virtualenv 
 
+
+For building the paper:
 	echo other packages: sudo apt-get install  lyx lyx-common
+
+For running real robot experiments:
+	sudo apt-get install spread python-spread python-pygame
+
+For processing the data:
+	opencv?
+	
 
 	
 This assumes that you have 

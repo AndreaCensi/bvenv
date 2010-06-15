@@ -32,8 +32,12 @@ mkdir -p ${BVENV_SRC}
 echo Installing nose in this virtual env
 ${BVENV_PREFIX}/bin/easy_install nose
 
+echo "Installing a yaml library (for patience)"
+${BVENV_PREFIX}/bin/easy_install pyyaml
+
 
 echo Checkout the sources
+read
 cd ${BVENV_SRC} && svn co https://www.cds.caltech.edu/subversion/andrea/snp/camera-bootstrap
 cd ${BVENV_SRC} && svn co https://www.cds.caltech.edu/subversion/andrea/snp/snp-log
 cd ${BVENV_SRC} && svn co https://www.cds.caltech.edu/subversion/andrea/snp/snp_geometry
