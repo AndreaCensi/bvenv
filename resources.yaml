@@ -31,7 +31,7 @@ install: cmake
 ---
 destination: ${BVENV_SRC}/reprep
 type: git
-url: git@github.com:AndreaCensi/json-c.git
+url: git@github.com:AndreaCensi/reprep.git
 install: cmake
 test: nose
 ---
