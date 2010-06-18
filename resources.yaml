@@ -31,8 +31,8 @@ install: cmake
 ---
 destination: ${BVENV_SRC}/reprep
 type: git
-url: git@github.com:AndreaCensi/reprep.git
-install: setuptools
+url: git@github.com:AndreaCensi/reprep.git 
+install: setuptools 
 test: nose
 ---
 destination: ${BVENV_SRC}/bv

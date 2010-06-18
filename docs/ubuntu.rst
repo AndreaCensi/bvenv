@@ -44,10 +44,12 @@ For running real robot experiments:
 	sudo apt-get install spread python-spread python-pygame
 
 For processing the data:
-	opencv?
+	opencv --- 2.1; not the one on the repo
 	
+For creating the video:
 
-	
+	pymedia --- this will need to be installed manually
+
 This assumes that you have 
 
 
