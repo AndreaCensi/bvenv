@@ -31,8 +31,8 @@ install: cmake
 ---
 destination: ${BVENV_SRC}/reprep
 type: git
-url: git@github.com:AndreaCensi/json-c.git
-install: cmake
+url: git@github.com:AndreaCensi/reprep.git
+install: setuptools
 test: nose
 ---
 destination: ${BVENV_SRC}/bv
@@ -43,4 +43,9 @@ install: setuptools
 destination: ${BVENV_SRC}/camera_utils
 type: subversion
 url: https://www.cds.caltech.edu/subversion/andrea/snp/albert-sp10/camera_utils
+install: setuptools
+---
+destination: ${BVENV_SRC}/camera-bootstrap
+type: subversion
+url:  https://www.cds.caltech.edu/subversion/andrea/snp/camera-bootstrap
 install: setuptools

@@ -13,7 +13,7 @@ def system_cmd_fail(cmd):
     print cmd
     res = os.system(cmd)
     if res != 0:
-        raise Exception('Command "%s" failed. (ret vlaue: %s)' %(cmd, res))
+        raise Exception('Command "%s" failed. (ret value: %s)' %(cmd, res))
 
 def system_output(cmd):
     ''' Gets the output of a command. '''
@@ -100,7 +100,8 @@ class Git(Resource):
         return 0 != system_cmd('cd %s && git diff --quiet --exit-code origin/%s' % (self.destination, self.branch))
         
     def commit(self):
-        system_cmd_fail('git commit -a %s' % (self.destination))
+        system_cmd_fail('cd %s && git commit -a' % (self.destination))
+        system_cmd_fail('cd %s && git push' % (self.destination))
         
     
 
