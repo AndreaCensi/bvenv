@@ -139,6 +139,7 @@ def instantiate(config):
 if __name__=='__main__':
     config = 'resources.yaml'
     resources = list(yaml.load_all(open(config)))
+    resources = filter( lambda x: x is not None, resources)
     resources = map(expand, resources)
     resources = map(instantiate, resources)
     
