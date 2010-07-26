@@ -1,0 +1,21 @@
+- {destination: '${BVENV_SRC}/jsonstream', install: setuptools, revision: '3590',
+  type: subversion, url: 'https://www.cds.caltech.edu/subversion/andrea/pri/bv/src/jsonstream'}
+- {destination: '${BVENV_SRC}/compmake', install: setuptools, revision: c6cc7aac59b20d24cfdbb58c5fc376bdc5292d52,
+  type: git, url: 'git@github.com:AndreaCensi/compmake.git'}
+- {destination: '${BVENV_SRC}/snp_geometry', install: setuptools, revision: '3590',
+  type: subversion, url: 'https://www.cds.caltech.edu/subversion/andrea/snp/snp_geometry'}
+- {destination: '${BVENV_SRC}/snp-log', install: setuptools, revision: '3590', type: subversion,
+  url: 'https://www.cds.caltech.edu/subversion/andrea/snp/snp-log'}
+- {destination: '${BVENV_SRC}/json-c', install: cmake, revision: d0d3d16321f710b95ee70723ba84889fde0738cf,
+  type: git, url: 'git@github.com:AndreaCensi/json-c.git'}
+- {destination: '${BVENV_SRC}/raytracer', install: cmake, revision: '3590', type: subversion,
+  url: 'https://www.cds.caltech.edu/subversion/andrea/pri/bv/src/raytracer'}
+- {destination: '${BVENV_SRC}/reprep', install: setuptools, revision: ef977f4dd80adfd62b78f91c5c5d84070d2f631a,
+  test: nose, type: git, url: 'git@github.com:AndreaCensi/reprep.git'}
+- {destination: '${BVENV_SRC}/bv', install: setuptools, revision: '3590', type: subversion,
+  url: 'https://www.cds.caltech.edu/subversion/andrea/pri/bv/src'}
+- {destination: '${BVENV_SRC}/camera_utils', install: setuptools, revision: '3590',
+  type: subversion, url: 'https://www.cds.caltech.edu/subversion/andrea/snp/albert-sp10/camera_utils'}
+- {destination: '${BVENV_SRC}/camera-bootstrap', install: setuptools, revision: '3590',
+  type: subversion, url: 'https://www.cds.caltech.edu/subversion/andrea/snp/camera-bootstrap'}
+
