@@ -1,4 +1,9 @@
 ---
+destination: ${BVENV_SRC}/patience
+type: git
+url: git@github.com:AndreaCensi/patience.git
+install: setuptools
+---
 destination: ${BVENV_SRC}/jsonstream
 type: subversion
 url: https://www.cds.caltech.edu/subversion/andrea/pri/bv/src/jsonstream

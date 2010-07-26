@@ -7,7 +7,6 @@ def system_cmd(cmd):
     if val != 0:
         print "%s: %s" % (val, cmd)
     return val
-        
     
 def system_cmd_fail(cmd):
     print cmd
@@ -23,8 +22,9 @@ def system_output(cmd):
 class Resource:
     def __init__(self, config):
         self.config = config
-        self.destination = config['destination']
-
+        self.destination_orig = config['destination']
+        self.destination = expand_environment(self.destination_orig)
+        
     def is_downloaded(self):
         return os.path.exists(self.destination)
 
@@ -39,6 +39,9 @@ class Resource:
 
     def update(self):
         pass
+
+    def current_revision(self):
+	return None
 
     def something_to_commit(self):
         return False
@@ -81,6 +84,11 @@ class Subversion(Resource):
 
     def commit(self):
         system_cmd_fail('svn commit %s' % (self.destination))
+        
+    def current_revision(self):
+        out = system_output('svnversion %s' % self.destination)
+        out = out.split()[0]
+        return out
 
 class Git(Resource):
     def __init__(self, config):
@@ -103,8 +111,11 @@ class Git(Resource):
         system_cmd_fail('cd %s && git commit -a' % (self.destination))
         system_cmd_fail('cd %s && git push' % (self.destination))
         
+    def current_revision(self):
+        out = system_output('cd %s && git rev-parse HEAD' % self.destination)    
+        out = out.split()[0]
+        return out
     
-
 def expand_environment(s):
     while True:
         m =  re.match('(.*)\$\{(\w+)\}(.*)', s)
@@ -118,12 +129,12 @@ def expand_environment(s):
         sub = os.environ[var]
         s = before+sub+after
         #print 'Expanded to %s' % s
-            
-def expand(r):
-    ''' Expand environment variables found. '''
-    for k in r.keys():
-        r[k] = expand_environment(r[k])
-    return r
+#            
+#def expand(r):
+#    ''' Expand environment variables found. '''
+#    for k in r.keys():
+#        r[k] = expand_environment(r[k])
+#    return r
 
 def instantiate(config):
     res_type = config['type']
@@ -139,8 +150,12 @@ def instantiate(config):
 if __name__=='__main__':
     config = 'resources.yaml'
     resources = list(yaml.load_all(open(config)))
+<<<<<<< HEAD:patience
     resources = filter( lambda x: x is not None, resources)
     resources = map(expand, resources)
+=======
+#    resources = map(expand, resources)
+>>>>>>> 3178eeaef16122391c3228e54bb9ad1d291b1f0e:patience.py
     resources = map(instantiate, resources)
     
     
@@ -175,7 +190,13 @@ if __name__=='__main__':
             else:
                 pass
 #                print "%s: all ok." % r
-        
+    elif command == 'tag':
+        h = []
+        for r in resources:
+            c = r.config.copy()
+            c['revision'] = r.current_revision()
+            h.append(c)
+        print yaml.dump(h)
     elif command == 'commit':
         for r in resources:
             if r.something_to_commit():
