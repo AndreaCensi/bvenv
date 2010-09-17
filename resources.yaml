@@ -1,12 +1,7 @@
 ---
-destination: ${BVENV_SRC}/patience
-type: git
-url: git@github.com:AndreaCensi/patience.git
-install: setuptools
----
 destination: ${BVENV_SRC}/jsonstream
-type: subversion
-url: https://www.cds.caltech.edu/subversion/andrea/pri/bv/src/jsonstream
+type: git
+url: git@github.com:AndreaCensi/jsonstream.git
 install: setuptools
 ---
 destination: ${BVENV_SRC}/compmake
@@ -15,13 +10,8 @@ url: git@github.com:AndreaCensi/compmake.git
 install: setuptools
 ---
 destination: ${BVENV_SRC}/snp_geometry
-type: subversion
-url: https://www.cds.caltech.edu/subversion/andrea/snp/snp_geometry
-install: setuptools
----
-destination: ${BVENV_SRC}/snp-log
-type: subversion
-url: https://www.cds.caltech.edu/subversion/andrea/snp/snp-log
+type: git
+url: git@github.com:AndreaCensi/snp_geometry.git
 install: setuptools
 ---
 destination: ${BVENV_SRC}/json-c
@@ -30,8 +20,8 @@ url: git@github.com:AndreaCensi/json-c.git
 install: cmake
 ---
 destination: ${BVENV_SRC}/raytracer
-type: subversion
-url: https://www.cds.caltech.edu/subversion/andrea/pri/bv/src/raytracer
+type: git
+url: git@github.com:AndreaCensi/raytracer.git
 install: cmake
 ---
 destination: ${BVENV_SRC}/reprep
@@ -40,17 +30,13 @@ url: git@github.com:AndreaCensi/reprep.git
 install: setuptools 
 test: nose
 ---
-destination: ${BVENV_SRC}/bv
-type: subversion
-url: https://www.cds.caltech.edu/subversion/andrea/pri/bv/src
+destination: ${BVENV_SRC}/pybv
+type: git
+url: git@github.com:AndreaCensi/pybv.git
 install: setuptools
 ---
-destination: ${BVENV_SRC}/camera_utils
-type: subversion
-url: https://www.cds.caltech.edu/subversion/andrea/snp/albert-sp10/camera_utils
+destination: ${BVENV_SRC}/bvexp201007
+type: git
+url: git@github.com:AndreaCensi/bvexp201007.git
 install: setuptools
----
-destination: ${BVENV_SRC}/camera-bootstrap
-type: subversion
-url:  https://www.cds.caltech.edu/subversion/andrea/snp/camera-bootstrap
-install: setuptools
+
