@@ -1,41 +1,45 @@
 ---
-destination: ${BVENV_SRC}/jsonstream
+destination: .
+type: git
+url: git@github.com:AndreaCensi/bvenv.git
+---
+destination: ./src/jsonstream
 type: git
 url: git@github.com:AndreaCensi/jsonstream.git
 install: setuptools
 ---
-destination: ${BVENV_SRC}/compmake
+destination: ./src/compmake
 type: git
 url: git@github.com:AndreaCensi/compmake.git
 install: setuptools
 ---
-destination: ${BVENV_SRC}/snp_geometry
+destination: ./src/snp_geometry
 type: git
 url: git@github.com:AndreaCensi/snp_geometry.git
 install: setuptools
 ---
-destination: ${BVENV_SRC}/json-c
+destination: ./src/json-c
 type: git
 url: git@github.com:AndreaCensi/json-c.git
 install: cmake
 ---
-destination: ${BVENV_SRC}/raytracer
+destination: ./src/raytracer
 type: git
 url: git@github.com:AndreaCensi/raytracer.git
 install: cmake
 ---
-destination: ${BVENV_SRC}/reprep
+destination: ./src/reprep
 type: git
 url: git@github.com:AndreaCensi/reprep.git 
 install: setuptools 
 test: nose
 ---
-destination: ${BVENV_SRC}/pybv
+destination: ./src/pybv
 type: git
 url: git@github.com:AndreaCensi/pybv.git
 install: setuptools
 ---
-destination: ${BVENV_SRC}/bvexp201007
+destination: ./src/bvexp201007
 type: git
 url: git@github.com:AndreaCensi/bvexp201007.git
 install: setuptools
