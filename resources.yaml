@@ -15,7 +15,7 @@ install: setuptools
 ---
 destination: ./src/snp_geometry
 type: git
-url: git@github.com:AndreaCensi/snp_geometry.git
+url: git@github.com:AndreaCensi/geometry.git
 install: setuptools
 ---
 destination: ./src/json-c
